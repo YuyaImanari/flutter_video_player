@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_video_player/body/better_player.dart';
 import 'package:flutter_video_player/body/chewie.dart';
+import 'package:flutter_video_player/body/custom_video_player.dart';
 import 'package:flutter_video_player/body/video_player.dart';
+
+import 'body/slider_video_player.dart';
 
 void main() {
   runApp(MyApp());
@@ -48,6 +51,36 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Text(
                 'Video Player',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => CustomVideoPlayer()),
+                );
+              },
+              child: Text(
+                'Custom Video Player',
+                style: TextStyle(fontSize: 18),
+              ),
+            ),
+            SizedBox(
+              height: 16,
+            ),
+            FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SliderVideoPlayer()),
+                );
+              },
+              child: Text(
+                'Slider Video Player',
                 style: TextStyle(fontSize: 18),
               ),
             ),

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_video_player/component/slider_video_progress_indicator.dart';
 import 'package:video_player/video_player.dart';
+import 'package:flutter_video_player/component/custom_video_progress_indicator.dart';
 
-class VideoPlayerBody extends StatefulWidget {
+class SliderVideoPlayer extends StatefulWidget {
   @override
-  _VideoPlayerBodyState createState() => _VideoPlayerBodyState();
+  _SliderVideoPlayerState createState() => _SliderVideoPlayerState();
 }
 
-class _VideoPlayerBodyState extends State<VideoPlayerBody> {
+class _SliderVideoPlayerState extends State<SliderVideoPlayer> {
   VideoPlayerController _controller;
 
   @override
@@ -34,7 +36,7 @@ class _VideoPlayerBodyState extends State<VideoPlayerBody> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video Player'),
+        title: Text('Slider Video Player'),
       ),
       body: Center(
         child: Stack(
@@ -48,12 +50,9 @@ class _VideoPlayerBodyState extends State<VideoPlayerBody> {
                 : Container(),
             Positioned(
               bottom: 0,
-              height: 32,
+              height: 15,
               width: MediaQuery.of(context).size.width,
-              child: VideoProgressIndicator(
-                _controller,
-                allowScrubbing: true,
-              ),
+              child: SliderVideoProgressIndicator(_controller),
             ),
             Positioned(
               bottom: 12,
@@ -108,20 +107,6 @@ class _PlayerSpeedButtonState extends State<_PlayerSpeedButton> {
           });
         },
       ),
-      // child: RaisedButton(
-      //   child: Text(
-      //     'x$speed',
-      //     style: TextStyle(
-      //       color: Colors.white,
-      //     ),
-      //   ),
-      //   shape: CircleBorder(),
-      //   onPressed: () {
-      //     speed = speed > 1.5 ? 0.5 : speed + 0.5;
-      //     widget.controller.setPlaybackSpeed(speed);
-      //     setState(() {});
-      //   },
-      // ),
     );
   }
 }
