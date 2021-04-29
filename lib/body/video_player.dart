@@ -88,40 +88,18 @@ class _PlayerSpeedButtonState extends State<_PlayerSpeedButton> {
       height: 64,
       child: RaisedButton(
         child: Text(
-          // 'x$speed',
-          '▶||',
+          'x$speed',
           style: TextStyle(
             color: Colors.white,
           ),
         ),
         shape: CircleBorder(),
         onPressed: () {
-          // speed = speed > 1.5 ? 0.5 : speed + 0.5;
-          // widget.controller.setPlaybackSpeed(speed);
-          setState(() {
-            if (widget.controller.value.isPlaying) {
-              widget.controller.pause();
-            } else {
-              // If the video is paused, play it.
-              widget.controller.play();
-            }
-          });
+          speed = speed > 1.5 ? 0.5 : speed + 0.5;
+          widget.controller.setPlaybackSpeed(speed);
+          setState(() {});
         },
       ),
-      // child: RaisedButton(
-      //   child: Text(
-      //     'x$speed',
-      //     style: TextStyle(
-      //       color: Colors.white,
-      //     ),
-      //   ),
-      //   shape: CircleBorder(),
-      //   onPressed: () {
-      //     speed = speed > 1.5 ? 0.5 : speed + 0.5;
-      //     widget.controller.setPlaybackSpeed(speed);
-      //     setState(() {});
-      //   },
-      // ),
     );
   }
 }
